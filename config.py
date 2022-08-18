@@ -3,5 +3,5 @@ from decouple import config
 TOKEN = config("TOKEN")
 bot = Bot(TOKEN)
 dp = Dispatcher(bot=bot)
-# TOKEN = ""
+ADMIN = [177046516]
 
