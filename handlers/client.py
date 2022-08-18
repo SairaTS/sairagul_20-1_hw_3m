@@ -1,12 +1,14 @@
 from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot
+from keyboards.client_kb import start_markup
 
 
 # @dp.message_handler(commands=['start'])
 async def start_handler(message: types.Message):
     await bot.send_message(message.from_user.id,
-                           f"Добрый день! {message.from_user.full_name}")
+                           f"Добрый день! {message.from_user.full_name}",
+                           reply_markup=start_markup)
 
 
 # @dp.message_handler(commands=['quiz'])

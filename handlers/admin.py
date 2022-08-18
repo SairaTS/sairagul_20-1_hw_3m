@@ -7,7 +7,7 @@ import random
 
 async def game(message: types.Message):
     if message.text.startswith('game'):
-        if message.from_user.id  in ADMIN:
+        if message.from_user.id in ADMIN:
             emoji_list = ['🏀', '🎯', '🎳', '🎰', '⚽️']
             emoji = random.choice(emoji_list)
             await bot.send_dice(message.chat.id, emoji=emoji)
