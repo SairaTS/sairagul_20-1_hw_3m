@@ -14,5 +14,6 @@ async def game(message: types.Message):
         else:
             await message.reply("Вы не админ!!!")
 
+
 def register_handlers_admin(dp: Dispatcher):
     dp.register_message_handler(game)

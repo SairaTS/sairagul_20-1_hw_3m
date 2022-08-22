@@ -2,6 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot
 from keyboards.client_kb import start_markup
+from database.bot_db import sql_command_random
 
 
 # @dp.message_handler(commands=['start'])
@@ -37,6 +38,8 @@ async def quiz_1(message: types.Message):
         reply_markup=markup
     )
 
+async def show_random_user(message: types.Message):
+    await sql_command_random(message)
 
 async def pin(message: types.Message):
     if message.reply_to_message:
@@ -45,7 +48,11 @@ async def pin(message: types.Message):
         await message.reply("Команда должна быть ответом на сообщение!")
 
 
+
+
+
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(start_handler, commands=['start'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(pin, commands=['pin'], commands_prefix=['!'])
+    dp.register_message_handler(show_random_user, commands=['get'])
